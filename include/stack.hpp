@@ -5,12 +5,12 @@
 
 struct Stack {
   struct Node {
-    Node* Next = nullptr;
-    int Data = 0;
+    Node* Next;
+    int Data;
   };
 
   // Указатель на вверхний элемент стека.
-  Node* Top = nullptr;
+  Node* Top;
 };
 
 void Construct(Stack& stack);
