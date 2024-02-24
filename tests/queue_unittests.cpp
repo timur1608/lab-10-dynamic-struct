@@ -18,18 +18,18 @@ TEST(Queue, Push) {
   Queue queue;
   Construct(queue);
   Push(queue, 0);
-  ASSERT_NEQ(queue.Head, nullptr);
-  ASSERT_NEQ(queue.Tail, nullptr);
+  ASSERT_NE(queue.Head, nullptr);
+  ASSERT_NE(queue.Tail, nullptr);
   EXPECT_EQ(queue.Head, queue.Tail);
   Push(queue, 1);
-  ASSERT_NEQ(queue.Head, nullptr);
-  ASSERT_NEQ(queue.Tail, nullptr);
+  ASSERT_NE(queue.Head, nullptr);
+  ASSERT_NE(queue.Tail, nullptr);
   EXPECT_EQ(queue.Tail->Data, 1);
   EXPECT_EQ(queue.Head->Data, 0);
 
   EXPECT_EQ(Pop(queue), 0);
-  ASSERT_NEQ(queue.Head, nullptr);
-  ASSERT_NEQ(queue.Tail, nullptr);
+  ASSERT_NE(queue.Head, nullptr);
+  ASSERT_NE(queue.Tail, nullptr);
   EXPECT_EQ(queue.Head, queue.Tail);
 
   Push(queue, 2);
@@ -45,20 +45,20 @@ TEST(Queue, Pop) {
   Queue queue;
   Construct(queue);
   Push(queue, 0);
-  ASSERT_NEQ(queue.Head, nullptr);
-  ASSERT_NEQ(queue.Tail, nullptr);
+  ASSERT_NE(queue.Head, nullptr);
+  ASSERT_NE(queue.Tail, nullptr);
   EXPECT_EQ(queue.Head, queue.Tail);
   Push(queue, 1);
   EXPECT_EQ(Pop(queue), 0);
-  ASSERT_NEQ(queue.Head, nullptr);
-  ASSERT_NEQ(queue.Tail, nullptr);
+  ASSERT_NE(queue.Head, nullptr);
+  ASSERT_NE(queue.Tail, nullptr);
   EXPECT_EQ(queue.Head, queue.Tail);
 
   Push(queue, 2);
   Push(queue, 3);
   Push(queue, 4);
-  ASSERT_NEQ(queue.Head, nullptr);
-  ASSERT_NEQ(queue.Tail, nullptr);
+  ASSERT_NE(queue.Head, nullptr);
+  ASSERT_NE(queue.Tail, nullptr);
   EXPECT_EQ(Pop(queue), 1);
   EXPECT_EQ(Pop(queue), 2);
   EXPECT_EQ(Pop(queue), 3);

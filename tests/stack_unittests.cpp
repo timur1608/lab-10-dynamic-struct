@@ -16,11 +16,11 @@ TEST(Stack, Push) {
   Stack stack;
   Construct(stack);
   Push(stack, 0);
-  ASSERT_NEQ(stack.Top, nullptr);
+  ASSERT_NE(stack.Top, nullptr);
   Push(stack, 1);
   EXPECT_FALSE(Empty(stack));
   EXPECT_EQ(Pop(stack), 1);
-  ASSERT_NEQ(stack.Top, nullptr);
+  ASSERT_NE(stack.Top, nullptr);
 
   Push(stack, 2);
   Push(stack, 3);
@@ -29,7 +29,7 @@ TEST(Stack, Push) {
   EXPECT_FALSE(Empty(stack));
   Destruct(stack);
   EXPECT_EQ(stack.Top, nullptr);
-  EXPECT_EQ(stack.Tail, nullptr);
+  EXPECT_EQ(stack.Top, nullptr);
   EXPECT_TRUE(Empty(stack));
 }
 
@@ -39,18 +39,18 @@ TEST(Stack, Pop) {
 
   Push(stack, 0);
   EXPECT_FALSE(Empty(stack));
-  ASSERT_NEQ(stack.Top, nullptr);
+  ASSERT_NE(stack.Top, nullptr);
 
   Push(stack, 1);
   EXPECT_FALSE(Empty(stack));
   EXPECT_EQ(Pop(stack), 1);
-  ASSERT_NEQ(stack.Top, nullptr);
+  ASSERT_NE(stack.Top, nullptr);
 
   Push(stack, 2);
   Push(stack, 3);
   Push(stack, 4);
   EXPECT_FALSE(Empty(stack));
-  ASSERT_NEQ(stack.Top, nullptr);
+  ASSERT_NE(stack.Top, nullptr);
   EXPECT_EQ(Pop(stack), 4);
   EXPECT_EQ(Pop(stack), 3);
   EXPECT_EQ(Pop(stack), 2);
