@@ -5,15 +5,15 @@
 
 struct Queue {
   struct Node {
-    Node* Next = nullptr;
-    int Data = 0;
+    Node* Next;
+    int Data;
   };
 
   // Указатель на первый элемент очереди.
-  Node* Head = nullptr;
+  Node* Head;
 
   // Указатель на последний элемент очереди.
-  Node* Tail = nullptr;
+  Node* Tail;
 };
 
 void Construct(Queue& queue);

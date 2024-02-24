@@ -21,19 +21,19 @@ TEST(ForwardList, PushFront) {
   PushFront(list, 3);
 
   ForwardList::Node* node = list.Head;
-  ASSERT_NEQ(node, nullptr);
+  ASSERT_NE(node, nullptr);
   EXPECT_EQ(node->Data, 3);
 
   node = node->Next;
-  ASSERT_NEQ(node, nullptr);
+  ASSERT_NE(node, nullptr);
   EXPECT_EQ(node->Data, 2);
 
   node = node->Next;
-  ASSERT_NEQ(node, nullptr);
+  ASSERT_NE(node, nullptr);
   EXPECT_EQ(node->Data, 1);
 
   node = node->Next;
-  ASSERT_NEQ(node, nullptr);
+  ASSERT_NE(node, nullptr);
   EXPECT_EQ(node->Data, 0);
 
   node = node->Next;
@@ -73,14 +73,14 @@ TEST(ForwardList, RemoveAfter) {
 
   RemoveAfter(list.Head);
   EXPECT_EQ(Size(list), 3u);
-  ASSERT_NEQ(list.Head, nullptr);
-  ASSERT_NEQ(list.Head->Next, nullptr);
+  ASSERT_NE(list.Head, nullptr);
+  ASSERT_NE(list.Head->Next, nullptr);
   EXPECT_EQ(list.Head->Next->Data, 1);
 
   RemoveAfter(list.Head->Next);
   EXPECT_EQ(Size(list), 2u);
-  ASSERT_NEQ(list.Head, nullptr);
-  ASSERT_NEQ(list.Head->Next, nullptr);
+  ASSERT_NE(list.Head, nullptr);
+  ASSERT_NE(list.Head->Next, nullptr);
   EXPECT_EQ(list.Head->Next->Data, 1);
 
   RemoveAfter(list.Head->Next);
@@ -88,7 +88,7 @@ TEST(ForwardList, RemoveAfter) {
 
   RemoveAfter(list.Head);
   EXPECT_EQ(Size(list), 1u);
-  ASSERT_NEQ(list.Head, nullptr);
+  ASSERT_NE(list.Head, nullptr);
   ASSERT_EQ(list.Head->Next, nullptr);
 
   Destruct(list);
@@ -107,19 +107,19 @@ TEST(ForwardList, PopFront) {
   EXPECT_EQ(Size(list), 4u);
   PopFront(list);
   EXPECT_EQ(Size(list), 3u);
-  ASSERT_NEQ(list.Head, nullptr);
+  ASSERT_NE(list.Head, nullptr);
   EXPECT_EQ(list.Head->Data, 2);
 
   RemoveAfter(list.Head);
   EXPECT_EQ(Size(list), 2u);
-  ASSERT_NEQ(list.Head, nullptr);
+  ASSERT_NE(list.Head, nullptr);
   EXPECT_EQ(list.Head->Data, 2);
-  ASSERT_NEQ(list.Head->Next, nullptr);
+  ASSERT_NE(list.Head->Next, nullptr);
   EXPECT_EQ(list.Head->Next->Data, 0);
 
   PopFront(list);
   EXPECT_EQ(Size(list), 1u);
-  ASSERT_NEQ(list.Head, nullptr);
+  ASSERT_NE(list.Head, nullptr);
   EXPECT_EQ(list.Head->Data, 0);
 
   PopFront(list);
@@ -142,23 +142,23 @@ TEST(ForwardList, InsertAfter) {
 
   RemoveAfter(list.Head);
   EXPECT_EQ(Size(list), 3u);
-  ASSERT_NEQ(list.Head, nullptr);
+  ASSERT_NE(list.Head, nullptr);
   EXPECT_EQ(list.Head->Data, 3);
-  ASSERT_NEQ(list.Head->Next, nullptr);
+  ASSERT_NE(list.Head->Next, nullptr);
   EXPECT_EQ(list.Head->Next->Data, 1);
 
-  InsertAfter(list->Head, 2);
+  InsertAfter(list.Head, 2);
   EXPECT_EQ(Size(list), 4u);
-  ASSERT_NEQ(list.Head, nullptr);
+  ASSERT_NE(list.Head, nullptr);
   EXPECT_EQ(list.Head->Data, 3);
-  ASSERT_NEQ(list.Head->Next, nullptr);
+  ASSERT_NE(list.Head->Next, nullptr);
   EXPECT_EQ(list.Head->Next->Data, 2);
 
-  auto* newNode = InsertAfter(list->Head->Next, -1);
+  auto* newNode = InsertAfter(list.Head->Next, -1);
   EXPECT_EQ(Size(list), 5u);
-  ASSERT_NEQ(newNode, nullptr);
+  ASSERT_NE(newNode, nullptr);
   EXPECT_EQ(newNode->Data, -1);
-  ASSERT_NEQ(newNode->Next, nullptr);
+  ASSERT_NE(newNode->Next, nullptr);
   EXPECT_EQ(newNode->Next->Data, 1);
 
   Destruct(list);
@@ -171,7 +171,7 @@ TEST(ForwardList, SomeCases) {
 
   EXPECT_EQ(Size(list), 0u);
   PopFront(list);
-  EXPECT_EQ(InsertAfter(nullptr), nullptr);
+  EXPECT_EQ(InsertAfter(nullptr, 0), nullptr);
   RemoveAfter(nullptr);
 
   EXPECT_EQ(Size(list), 0u);
@@ -193,19 +193,19 @@ TEST(ForwardList, Reverse) {
   EXPECT_EQ(Size(list), 4u);
 
   ForwardList::Node* node = list.Head;
-  ASSERT_NEQ(node, nullptr);
+  ASSERT_NE(node, nullptr);
   EXPECT_EQ(node->Data, 0);
 
   node = node->Next;
-  ASSERT_NEQ(node, nullptr);
+  ASSERT_NE(node, nullptr);
   EXPECT_EQ(node->Data, 1);
 
   node = node->Next;
-  ASSERT_NEQ(node, nullptr);
+  ASSERT_NE(node, nullptr);
   EXPECT_EQ(node->Data, 2);
 
   node = node->Next;
-  ASSERT_NEQ(node, nullptr);
+  ASSERT_NE(node, nullptr);
   EXPECT_EQ(node->Data, 3);
 
   node = node->Next;

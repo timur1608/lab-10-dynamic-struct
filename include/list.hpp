@@ -3,6 +3,8 @@
 #ifndef INCLUDE_LIST_HPP_
 #define INCLUDE_LIST_HPP_
 
+#include <cstddef>
+
 struct ForwardList {
   struct Node {
     Node* Next;
